@@ -1,0 +1,91 @@
+﻿@page
+@model QuestionGenerator.Pages.RegisterModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=text], input[type=password], input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form action="/action_page.php">
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <button type="submit">Sign Up</button>
+
+            <p>Or sign up with:</p>
+            <button>Gmail</button><br />
+            <button>Microsoft</button><br />
+            <button>Apple</button><br />
+        </div>
+    </form>
+
+    <script>
+        // Add your JavaScript code here
+        var form = document.querySelector('form');
+
+        // Add an event listener for form submission
+        form.addEventListener('submit', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Get the email and password values
+            var email = document.querySelector('input[name="email"]').value;
+            var password = document.querySelector('input[name="psw"]').value;
+            var passwordRepeat = document.querySelector('input[name="psw-repeat"]').value;
+
+            // Validate the email and password values
+            if (!email || !password || !passwordRepeat) {
+                alert('Please enter your email and password.');
+                return;
+            }
+            if (password !== passwordRepeat) {
+                alert('Passwords do not match.');
+                return;
+            }
+    </script>
+
+</body>
+</html>
